@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteJoyas" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="09b394aa-63d5-4f90-8303-d92180a6c7b4">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="211"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#2F4F4F">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#A9A9A9">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#A9A9A9">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#FFBFBF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Joyas" uuid="4029c5e8-6c7b-4688-8ddc-590f1c5b47f9">
+		<queryString language="SQL">
+			<![CDATA[Select codigoPiedra, nomPiedra, color, joyeria, nomClasif
+From Piedra pr , Clasificacion cl Where pr.codigoCla=cl.codigoCla
+and cl.codigoCla=1]]>
+		</queryString>
+		<field name="codigoPiedra" class="java.lang.Integer"/>
+		<field name="nomPiedra" class="java.lang.String"/>
+		<field name="color" class="java.lang.String"/>
+		<field name="joyeria" class="java.lang.String"/>
+		<field name="nomClasif" class="java.lang.String"/>
+	</subDataset>
+	<subDataset name="Min" uuid="4235a5f9-11a6-4f3a-b05c-7acacf5de5d7">
+		<queryString language="SQL">
+			<![CDATA[Select codigoPiedra, nomPiedra, color, joyeria, nomClasif
+From Piedra pr , Clasificacion cl Where pr.codigoCla=cl.codigoCla
+and cl.codigoCla=2]]>
+		</queryString>
+		<field name="codigoPiedra" class="java.lang.Integer"/>
+		<field name="nomPiedra" class="java.lang.String"/>
+		<field name="color" class="java.lang.String"/>
+		<field name="joyeria" class="java.lang.String"/>
+		<field name="nomClasif" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[Select * from Piedra]]>
+	</queryString>
+	<field name="codigoPiedra" class="java.lang.Integer"/>
+	<field name="nomPiedra" class="java.lang.String"/>
+	<field name="color" class="java.lang.String"/>
+	<field name="joyeria" class="java.lang.String"/>
+	<field name="codigoCla" class="java.lang.Integer"/>
+	<variable name="color_1" class="java.lang.Integer" calculation="Count">
+		<variableExpression><![CDATA[$F{color}]]></variableExpression>
+	</variable>
+	<group name="Group1">
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group2">
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group3">
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="Group4">
+		<groupHeader>
+			<band height="645">
+				<componentElement>
+					<reportElement key="table 1" style="table 1" x="8" y="84" width="525" height="176" uuid="5ded3bde-1d89-42c4-b120-817f58ca51fb"/>
+					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<datasetRun subDataset="Joyas" uuid="c7f32d8b-ba05-483f-85cc-04cdeb7e580d">
+							<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						</datasetRun>
+						<jr:column width="90" uuid="bf53332c-101c-4653-90db-de52b3feaf69">
+							<jr:tableHeader style="table 1_TH" height="30"/>
+							<jr:tableFooter style="table 1_TH" height="30"/>
+							<jr:columnHeader style="table 1_CH" height="30">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="fbd38c25-5dd7-4f65-b3a5-7a6adedd8971"/>
+									<text><![CDATA[codigoPiedra]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter style="table 1_CH" height="30"/>
+							<jr:detailCell style="table 1_TD" height="20">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="20" uuid="570484e9-fcfa-4e67-a2f7-770d71b0ec42"/>
+									<textFieldExpression><![CDATA[$F{codigoPiedra}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="90" uuid="ae39f5f9-8b3b-4a37-b662-e3f3efc07e23">
+							<jr:tableHeader style="table 1_TH" height="30"/>
+							<jr:tableFooter style="table 1_TH" height="30"/>
+							<jr:columnHeader style="table 1_CH" height="30">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="db004b97-f0e9-4247-9e7e-2babde3f12bf"/>
+									<text><![CDATA[nomPiedra]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter style="table 1_CH" height="30"/>
+							<jr:detailCell style="table 1_TD" height="20">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="20" uuid="f3069cde-20cd-47ee-8465-8144bacbd435"/>
+									<textFieldExpression><![CDATA[$F{nomPiedra}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="90" uuid="d83db430-19aa-4beb-88a3-c351aed91415">
+							<jr:tableHeader style="table 1_TH" height="30"/>
+							<jr:tableFooter style="table 1_TH" height="30"/>
+							<jr:columnHeader style="table 1_CH" height="30">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="356c8396-26de-4bdf-8966-29a6c45fd263"/>
+									<text><![CDATA[color]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter style="table 1_CH" height="30"/>
+							<jr:detailCell style="table 1_TD" height="20">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="20" uuid="a4e46f2e-5868-4d93-887e-84077ed2042f"/>
+									<textFieldExpression><![CDATA[$F{color}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="90" uuid="2758e9a4-abe8-4323-97c7-02d85625b9a4">
+							<jr:tableHeader style="table 1_TH" height="30"/>
+							<jr:tableFooter style="table 1_TH" height="30"/>
+							<jr:columnHeader style="table 1_CH" height="30">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="5b4a18c9-5194-4e20-a18d-5039ce038fe5"/>
+									<text><![CDATA[joyeria]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter style="table 1_CH" height="30"/>
+							<jr:detailCell style="table 1_TD" height="20">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="20" uuid="5c292bab-26b5-4cc4-a7b6-b5e107588983"/>
+									<textFieldExpression><![CDATA[$F{joyeria}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="90" uuid="03ec6381-f784-4922-8bf2-7b48963fde37">
+							<jr:tableHeader style="table 1_TH" height="30"/>
+							<jr:tableFooter style="table 1_TH" height="30"/>
+							<jr:columnHeader style="table 1_CH" height="30">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="66d71453-9fe2-4272-a164-4d49f65427ab"/>
+									<text><![CDATA[nomClasif]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter style="table 1_CH" height="30"/>
+							<jr:detailCell style="table 1_TD" height="20">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="20" uuid="98d192fe-293b-49fe-84d7-87ad979b1a4a"/>
+									<textFieldExpression><![CDATA[$F{nomClasif}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:table>
+				</componentElement>
+				<staticText>
+					<reportElement x="214" y="30" width="129" height="34" uuid="b68b5967-396c-4cad-bc5c-53bf644c871a"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<text><![CDATA[Joyas Por Rocas]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="203" y="323" width="129" height="34" uuid="cec54c8a-2e9b-4a66-8c49-eb6ed8c32974"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<text><![CDATA[Joyas Por Mineral]]></text>
+				</staticText>
+				<componentElement>
+					<reportElement key="table 2" style="table 2" x="8" y="374" width="525" height="201" uuid="37b54220-30d9-4302-96ce-fa6f1fbeaaee"/>
+					<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+						<datasetRun subDataset="Min" uuid="f84eadc0-37e7-4a41-97aa-2d5d7b6245c4">
+							<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+						</datasetRun>
+						<jr:column width="90" uuid="43507a40-6d30-4722-b1a0-052012fce7f6">
+							<jr:tableHeader style="table 2_TH" height="30"/>
+							<jr:tableFooter style="table 2_TH" height="30"/>
+							<jr:columnHeader style="table 2_CH" height="30">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="626c042d-e7af-4f20-8030-66f747e43ab6"/>
+									<text><![CDATA[codigoPiedra]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter style="table 2_CH" height="30"/>
+							<jr:detailCell style="table 2_TD" height="20">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="20" uuid="5a1626bc-2af3-4adb-a8ff-7da187519d7e"/>
+									<textFieldExpression><![CDATA[$F{codigoPiedra}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="90" uuid="c91298ea-b5af-449d-ad8d-81ec38dea93b">
+							<jr:tableHeader style="table 2_TH" height="30"/>
+							<jr:tableFooter style="table 2_TH" height="30"/>
+							<jr:columnHeader style="table 2_CH" height="30">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="02b298d8-94e2-4592-8dc0-0ccb30f5073b"/>
+									<text><![CDATA[nomPiedra]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter style="table 2_CH" height="30"/>
+							<jr:detailCell style="table 2_TD" height="20">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="20" uuid="f2fffe97-8455-4920-b1a8-2f850ea45872"/>
+									<textFieldExpression><![CDATA[$F{nomPiedra}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="90" uuid="79526f1d-741a-4f67-b5cd-81777dd20448">
+							<jr:tableHeader style="table 2_TH" height="30"/>
+							<jr:tableFooter style="table 2_TH" height="30"/>
+							<jr:columnHeader style="table 2_CH" height="30">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="3cca81d3-3a4c-48c0-ab53-ba904ca74a1d"/>
+									<text><![CDATA[color]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter style="table 2_CH" height="30"/>
+							<jr:detailCell style="table 2_TD" height="20">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="20" uuid="afc6f0ab-396f-4a37-9b97-766dcac0a2e9"/>
+									<textFieldExpression><![CDATA[$F{color}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="90" uuid="85371450-44e8-47e9-8671-e16e9c23b6b7">
+							<jr:tableHeader style="table 2_TH" height="30"/>
+							<jr:tableFooter style="table 2_TH" height="30"/>
+							<jr:columnHeader style="table 2_CH" height="30">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="3eb82c60-f944-44ac-bcaa-93349335b452"/>
+									<text><![CDATA[joyeria]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter style="table 2_CH" height="30"/>
+							<jr:detailCell style="table 2_TD" height="20">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="20" uuid="52c6bb9c-3a00-4af0-a413-923a24e6a8c6"/>
+									<textFieldExpression><![CDATA[$F{joyeria}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+						<jr:column width="90" uuid="113465a8-b7c4-411c-9a3d-7efcadd1226a">
+							<jr:tableHeader style="table 2_TH" height="30"/>
+							<jr:tableFooter style="table 2_TH" height="30"/>
+							<jr:columnHeader style="table 2_CH" height="30">
+								<staticText>
+									<reportElement x="0" y="0" width="90" height="30" uuid="15e5ead5-e7c4-4527-a368-78d167cf1945"/>
+									<text><![CDATA[nomClasif]]></text>
+								</staticText>
+							</jr:columnHeader>
+							<jr:columnFooter style="table 2_CH" height="30"/>
+							<jr:detailCell style="table 2_TD" height="20">
+								<textField>
+									<reportElement x="0" y="0" width="90" height="20" uuid="eb19014c-8727-4fbb-b724-622b0929330c"/>
+									<textFieldExpression><![CDATA[$F{nomClasif}]]></textFieldExpression>
+								</textField>
+							</jr:detailCell>
+						</jr:column>
+					</jr:table>
+				</componentElement>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band/>
+	</background>
+	<title>
+		<band height="72">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="-20" width="595" height="92" backcolor="#CCCCCC" uuid="ab631252-5e49-403f-8c87-a58ef85f8a31"/>
+				<staticText>
+					<reportElement x="20" y="20" width="234" height="43" forecolor="#FFFFFF" uuid="ecb735fc-8494-40be-a369-0d18a610da3c"/>
+					<textElement>
+						<font size="34" isBold="true"/>
+					</textElement>
+					<text><![CDATA[Joyas]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="352" y="43" width="180" height="20" forecolor="#FFFFFF" uuid="7befc8ff-a35d-425b-bdc5-959f3a246825"/>
+					<textElement textAlignment="Right">
+						<font size="14" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Joyas y sus colores]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band/>
+	</pageHeader>
+	<columnHeader>
+		<band height="21">
+			<staticText>
+				<reportElement mode="Opaque" x="0" y="0" width="183" height="20" forecolor="#006699" backcolor="#E6E6E6" uuid="48217f2d-b429-433c-a106-3b58f26ff611"/>
+				<textElement textAlignment="Center">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Joyas Reporte]]></text>
+			</staticText>
+			<line>
+				<reportElement x="-20" y="20" width="595" height="1" forecolor="#666666" uuid="f9f77ab0-4d01-4c0a-a581-bae451ff2244"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band/>
+	</detail>
+	<columnFooter>
+		<band/>
+	</columnFooter>
+	<pageFooter>
+		<band height="33">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement x="0" y="4" width="100" height="13" uuid="89cf692c-d5b6-4275-b17b-e87fa657ca32"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="5"/>
+	</summary>
+</jasperReport>
